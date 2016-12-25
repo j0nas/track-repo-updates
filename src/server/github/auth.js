@@ -1,7 +1,7 @@
 const github = require('github');
-const credentials = require("./credentials.json");
+const credentials = require("./credentials");
 
-module.exports = (api) =>
+module.exports = api =>
     api.authenticate({
         type: "basic",
         username: credentials.username,

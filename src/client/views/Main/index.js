@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import CustomButton from "../../components/input/CustomButton";
+import Repositories from "../../components/presentation/table/Repositories";
 
 export default class Main extends Component {
     constructor() {
@@ -11,9 +11,15 @@ export default class Main extends Component {
 
         this.findRepositories = this.findRepositories.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.listenForEnter = this.listenForEnter.bind(this);
     }
 
     findRepositories() {
+        if (!this.state.searchQuery) {
+            this.setState({repositories: []});
+            return;
+        }
+
         fetch('/api/' + this.state.searchQuery)
             .then(res => res.json())
             .then(res => this.setState({
@@ -25,16 +31,23 @@ export default class Main extends Component {
         this.setState({searchQuery: event.target.value});
     }
 
+    listenForEnter(e) {
+        const VK_ENTER = 13;
+        if (e.keyCode === VK_ENTER) {
+            this.findRepositories();
+        }
+    }
+
     render() {
         const {items = []} = this.state.repositories;
+        console.log(items[0]);
+
         return (
             <div>
-                <input type="text" value={this.state.searchQuery} onChange={this.handleChange}/>
-                <br/>
-                <CustomButton text="Click me!!" onClick={this.findRepositories}/>
-                <ul>
-                    {items.map(res => <li>{res.full_name}</li>)}
-                </ul>
+                <input type="search" value={this.state.searchQuery} onChange={this.handleChange}
+                       onKeyDown={this.listenForEnter}/>
+
+                <Repositories items={items}/>
             </div>
         );
     }

@@ -3,10 +3,8 @@ const github = require('../github');
 const auth = require('../github/auth');
 const router = express.Router();
 
-
 const findRepositoriesByName = (searchParam, resRef) => {
     auth(github);
-
     github.search.repos({q: searchParam})
         .then(res => resRef.send(res));
 };
