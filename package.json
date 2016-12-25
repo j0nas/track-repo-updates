@@ -1,0 +1,39 @@
+{
+  "name": "fullstack-react-boilerplate",
+  "version": "0.2.0",
+  "description": "Full-stack Node.js/React boilerplate with various utilities preconfigured",
+  "main": "index.js",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "github": "^7.1.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "html-webpack-plugin": "^2.24.1",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "webpack": "^2.2.0-rc.2",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-hot-middleware": "^2.14.0"
+  },
+  "scripts": {
+    "start": "node src/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j0nas/track-repo-updates.git"
+  },
+  "author": "Jonas Jensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j0nas/track-repo-updates/issues"
+  },
+  "homepage": "https://github.com/j0nas/track-repo-updates#readme"
+}
